@@ -1,5 +1,28 @@
 {
   "dependencies": {
-    "express": "^4.17.3"
-  }
+    "express": "^4.17.3",
+    "node": "^17.7.2"
+  },
+  "name": "y",
+  "version": "1.0.0",
+  "main": "main.js",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon main"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/l-permingeat/Alps-Drive.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/l-permingeat/Alps-Drive/issues"
+  },
+  "homepage": "https://github.com/l-permingeat/Alps-Drive#readme",
+  "description": ""
 }

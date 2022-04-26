@@ -58,10 +58,38 @@ export function direntItemsToFiles(direntItems, path) {
 }
 
 //Création d'un dossier
-export function addFolder(path) {
-    const concatenatedPath = join(DRIVE_ROOT, path)
-    return fs.mkdir(concatenatedPath)
-        .catch(console.log("Il y a une erreure"))
+export function addDirectory(nameQuery, res, path = "") {
+    const regexDirectory = /^[a-zA-Z]+$/gi;
+
+    const concatenatedPath = join(DRIVE_ROOT, path, nameQuery)
+
+    //condition pour tester si le nom du dossier correspond au regex
+    if (regexDirectory.test(nameQuery)) {
+        return fs.mkdir(concatenatedPath)
+        // .catch(console.log("Il y a une erreure"))
+    } else {
+        console.log("Il y a une erreur");
+        return res.status(400).send("Le format n'est pas valide")
+    }
 }
+
+
+export function deleteItem(path = "",folder, res) {
+    const regexDirectory = /^[a-zA-Z]+$/gi;
+    console.log("PATH",path);
+
+    const concatenatedPath = join(DRIVE_ROOT, path)
+    //condition pour tester si le nom du dossier correspond au regex
+    if (regexDirectory.test(path)) {
+        return fs.rm(concatenatedPath, { recursive: true })
+    } else {
+        console.log("Il y a une erreur");
+        return res.status(400).send("Le format n'est pas valide")
+    }
+
+
+}
+
+
 
 
